@@ -1,0 +1,40 @@
+<header class="jumbotron subhead">
+  <div class="container">
+    <h1>Guestbook</h1>
+    <p class="lead">Please sign our guestbook!</p>
+  </div>
+</header>
+
+<div class="row">
+    <div class="span12">
+        <form action="" method="post">
+            <?php echo $this->form->csrf; ?>
+            <legend>Leave a message</legend>
+            
+            <?php if ($this->form->getMessages()): ?>
+            <div class="alert">
+                <strong>Warning!</strong> There were errors submitting the form.
+            </div>
+        <?php endif; ?>
+            
+            <label>Title</label>
+            <input name="title" type="text" placeholder="Enter a title" value="<?php echo $this->form->getValue('title'); ?>">
+            <label>Message</label>
+            <textarea rows="5" name="body" type="textarea" placeholder="Enter a message" value="<?php echo $this->form->getValue('body'); ?>"></textarea>
+            <br>
+            <button type="submit" class="btn">Post</button>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+        <h2>Recent Entries</h2>
+        
+        <?php foreach ($this->posts as $post): ?>
+            <h3><?php echo $post->getTitle(); ?></h3>
+            <p><em>Posted at: <?php echo $post->getCreated(); ?></p>
+            <p class="lead"><?php echo $post->getBody(); ?></p>
+        <?php endforeach; ?>
+    </div>
+</div>

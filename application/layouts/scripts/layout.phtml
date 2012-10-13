@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headMeta() ?>
+    <meta name="name" content="Guestbook">
+    <meta name="author" content="Rob Morgan">    
+    <?php echo $this->headTitle('Guestbook')->setSeparator(' - ') ?>
+    <?php echo $this->headLink()->appendStylesheet('/css/bootstrap.css') ?>
+    <?php echo $this->headStyle() ?>
+</head>
+<body>
+
+<div class="container">
+<?php echo $this->layout()->content ?>
+</div>
+
+</body>
+</html>
